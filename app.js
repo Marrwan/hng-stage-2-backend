@@ -34,7 +34,7 @@ mongoose
     useFindAndModify: false})
   .then(process.env.NODE_ENV == "development" ? () => console.log("server connected") : "")
   .catch((error)=>{
-     new AppError(error.message, error.status)
+    throw new Error(error)
   })
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
