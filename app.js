@@ -74,7 +74,9 @@ app.use(function (req, res, next) {
 app.use(require("./routes/index"));
 // HANDLING UNHANDLED ROUTES
 app.all("*", (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
+  res.status(404).send( `Can't find ${req.originalUrl} on this server`);
+ 
+  next()
 });
 
 
