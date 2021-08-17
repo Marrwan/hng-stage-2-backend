@@ -18,5 +18,5 @@ if(errors.length > 0){
 }
 await new Message({errors,first_name,last_name,email,message}).save()
               req.flash("success_msg" , `Message Sent Successfully! 👍👍`)
-              res.redirect("/")
+              res.render('success', {first_name})
 }
