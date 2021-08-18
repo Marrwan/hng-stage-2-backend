@@ -10,7 +10,7 @@ exports.contactHandler = async (req,res) => {
   const {first_name,last_name,email,message} = req.body;
 let errors = [];
 
-if(!first_name || !last_name || !email || !message){
+if(!first_name || first_name.trim().length === 0 || !last_name || last_name.trim().length === 0||  !email || email.trim().length === 0|| !message || message.trim().length === 0){
   errors.push({"msg":  "Please fill in the required fields"})
 }
 if(errors.length > 0){
